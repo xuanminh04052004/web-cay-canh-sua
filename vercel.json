@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/chatbot/chat.ts": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/chatbot/chat",
+      "destination": "/api/chatbot/chat"
+    }
+  ]
+}
+

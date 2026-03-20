@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Heart's Nurture - Fresh Plant Shop Palette */
+    --background: 60 30% 96%;
+    --foreground: 140 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 30% 15%;
+
+    --primary: 90 60% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 140 25% 92%;
+    --secondary-foreground: 140 30% 25%;
+
+    --muted: 60 20% 94%;
+    --muted-foreground: 140 15% 45%;
+
+    --accent: 90 55% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 15% 85%;
+    --input: 140 15% 90%;
+    --ring: 90 60% 45%;
+
+    --radius: 1rem;
+
+    /* Glassmorphism - Light theme */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 140 30% 15% / 0.1;
+    --glass-blur: 20px;
+
+    /* Hero dark glass */
+    --glass-dark-bg: 140 30% 15% / 0.6;
+    --glass-dark-border: 0 0% 100% / 0.15;
+
+    /* Fonts */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsla(140, 20%, 15%, 0.1);
+    --shadow-elevated: 0 25px 50px -12px hsla(140, 20%, 15%, 0.15);
+    --shadow-soft: 0 4px 20px hsla(140, 20%, 15%, 0.08);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 140 30% 15%;
+    --sidebar-primary: 90 60% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 25% 92%;
+    --sidebar-accent-foreground: 140 30% 25%;
+    --sidebar-border: 140 15% 85%;
+    --sidebar-ring: 90 60% 45%;
+
+    /* Cream background for sections */
+    --cream: 45 40% 95%;
+  }
+
+  .dark {
+    --background: 140 20% 8%;
+    --foreground: 60 30% 96%;
+    --card: 140 15% 12%;
+    --card-foreground: 60 30% 96%;
+    --popover: 140 15% 10%;
+    --popover-foreground: 60 30% 96%;
+    --primary: 90 60% 50%;
+    --primary-foreground: 140 20% 8%;
+    --secondary: 35 40% 35%;
+    --secondary-foreground: 60 30% 96%;
+    --muted: 140 10% 20%;
+    --muted-foreground: 60 10% 70%;
+    --accent: 90 55% 55%;
+    --accent-foreground: 140 20% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 60 30% 96%;
+    --border: 140 15% 25%;
+    --input: 140 15% 20%;
+    --ring: 90 60% 50%;
+    --glass-bg: 140 20% 15% / 0.6;
+    --glass-border: 60 30% 96% / 0.1;
+    --sidebar-background: 140 20% 8%;
+    --sidebar-foreground: 60 30% 96%;
+    --sidebar-primary: 90 60% 50%;
+    --sidebar-primary-foreground: 140 20% 8%;
+    --sidebar-accent: 140 15% 20%;
+    --sidebar-accent-foreground: 60 30% 96%;
+    --sidebar-border: 140 15% 25%;
+    --sidebar-ring: 90 60% 50%;
+    --cream: 140 15% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass {
+    background: hsla(var(--glass-bg));
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid hsla(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-dark {
+    background: hsla(var(--glass-dark-bg));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsla(var(--glass-dark-border));
+    box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.3);
+  }
+
+  .glass-card {
+    background: hsla(var(--glass-bg));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsla(var(--glass-border));
+    box-shadow: var(--shadow-glass);
+    border-radius: var(--radius);
+  }
+
+  .text-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsla(140, 30%, 15%, 0.4) 0%,
+      hsla(140, 30%, 15%, 0.2) 50%,
+      hsla(140, 30%, 15%, 0.6) 100%
+    );
+  }
+
+  .search-input {
+    @apply glass rounded-full px-6 py-3 outline-none;
+    @apply transition-all duration-300;
+    @apply focus:ring-2 focus:ring-primary/50;
+  }
+
+  .nav-slider-card {
+    @apply glass-card p-6 cursor-pointer;
+    @apply transition-all duration-500 ease-out;
+    @apply hover:scale-[1.02] hover:border-primary/30;
+  }
+
+  .nav-slider-card.active {
+    @apply border-primary/50 scale-[1.02];
+    box-shadow: 0 0 30px hsla(90, 60%, 45%, 0.2);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 30px hsla(0, 0%, 0%, 0.3);
+  }
+
+  .btn-icon {
+    @apply glass rounded-full p-3;
+    @apply transition-all duration-300;
+    @apply hover:bg-primary/20 hover:scale-110;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium;
+    @apply transition-all duration-300;
+    @apply hover:brightness-110 hover:scale-105;
+    @apply shadow-lg;
+  }
+
+  .section-cream {
+    background: hsl(var(--cream));
+  }
+
+  .card-hover {
+    @apply transition-all duration-300;
+    @apply hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
